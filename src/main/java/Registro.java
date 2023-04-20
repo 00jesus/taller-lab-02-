@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Registro {
@@ -46,9 +44,9 @@ public class Registro {
         switch(entradaMenu()){
 
             case 1: agregarPersona(registro);
-            case 2:
-            case 3:
-            case 4:
+            case 2: mostrarCantidadMayores(registro);
+            case 3: mostrarCantidadMenores(registro);
+            case 4: mostrarCantidadTerceraEdad(registro);
             case 5: mostrarPersonasEstadoCivil(registro);
             case 6: salir();
 
