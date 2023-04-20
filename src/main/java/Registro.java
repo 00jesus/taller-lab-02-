@@ -1,11 +1,12 @@
 import java.sql.SQLOutput;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Registro {
     public static void main(String[] args) {
         String[][] registro = new String[50][3];
 
-        menu();
+        menu(registro);
     }
     public static void mostrarMenu(){
 
@@ -38,33 +39,66 @@ public class Registro {
 
         return entrada;
     }
-    private static void menu(){
+    private static void menu(String[][] registro){
 
         mostrarMenu();
 
         switch(entradaMenu()){
 
-            case 1:
+            case 1: agregarPersona(registro);
             case 2:
             case 3:
             case 4:
-            case 5: cantidadPersonasEstadoCivil();
+            case 5: mostrarPersonasEstadoCivil(registro);
             case 6: salir();
 
         }
     }
-    public static String cantidadPersonasEstadoCivil(){
+    public static String[][] agregarPersona(String[][] registro) {
 
-        String estadoCivilPersonas ="hay " + personasSolteras() + " personas solteras, y hay " + personasCasadas() + " personas casadas";
+        boolean seIngreso = false;
+
+        while (!seIngreso) {
+            for (int fila = 0; fila < registro.length; fila++) {
+                if (registro[fila][0].isBlank()) {
+                    seIngreso = true;
+                    for (int columna = 0; columna < registro[fila].length; columna++) {
+                        registro[fila][columna] = teclado();
+                    }
+                }
+            }
+        }
+        return registro;
+    }
+
+    public static String cantidadPersonasEstadoCivil(String[][] registro){
+
+        int personasSolteras = personasSolteras(registro);
+        int personasCasadas = personasCasadas(registro);
+
+        String estadoCivilPersonas ="hay " + personasSolteras + " personas solteras, y hay " + personasCasadas + " personas casadas";
 
         return estadoCivilPersonas;
     }
-    public static int personasSolteras(){
+    public static void mostrarPersonasEstadoCivil(String[][] registro){
 
-        int cantidadSolteras = 0;
-        return cantidadSolteras;
+        System.out.println(cantidadPersonasEstadoCivil(registro));
     }
-    public static int personasCasadas(){
+    public static int personasSolteras(String[][] registro){
+
+        int cantidadSolteros = 0;
+        for(int fila = 0; fila < registro.length; fila++){
+
+            if(registro[fila][3] == "soltero"){
+
+                cantidadSolteros ++;
+            }
+            cantidadSolteros ++;
+            System.out.println(cantidadSolteros);
+        }
+        return cantidadSolteros;
+    }
+    public static int personasCasadas(String[][] registro){
         int cantidadCasadas = 0;
         return cantidadCasadas;
     }
