@@ -5,21 +5,49 @@ public class Registro {
 
     }
 
+    public static int stringToInt (String edad) {
+        int resultado = Integer.parseInt(edad);
+        return resultado;
+    }
+    public static int mostrarCantidadMayores (String[][] personas) {
+        int cantidad = 0;
+        int aux;
+        for (int pers = 0; pers < 50; pers++) {
+                aux = stringToInt(personas[pers][2]);  //EDAD siempre esta en 3ra columna, por lo tanto, indice 2
+                if (aux >= 18 ) {
+                    cantidad = cantidad + 1;
+                }
+        }
+        return cantidad;
+}
 
-public static void mostrarCantidadMayores (String[][] personas) {
+    public static int mostrarCantidadMenores (String [][] personas) {
+        int cantidad = 0;
+        int aux;
+        for (int pers = 0; pers < 50; pers++) {
+            aux = stringToInt(personas[pers][2]);  //EDAD siempre esta en 3ra columna, por lo tanto, indice 2
+            if (aux < 18 ) {
+                cantidad = cantidad + 1;
+            }
+        }
+        return cantidad;
 
 }
-public static void mostrarCantidadMenores (String [][] personas) {
+    public static int mostrarCantidadTerceraEdad (String [][] personas) {
+        int cantidad = 0;
+        int aux;
+        for (int pers = 0; pers < 50; pers++) {
+            aux = stringToInt(personas[pers][2]);  //EDAD siempre esta en 3ra columna, por lo tanto, indice 2
+            if (aux >= 65  ) {
+                cantidad = cantidad + 1;
+            }
+        }
+        return cantidad;
+    }
 
 }
-public static void mostrarCantidadTerceraEdad (String [][] personas) {
 
-}
 
-}
 
-/*
-    Queda pendiente como tratar:
-5) Mostrar la cantidad de personas según estado civil (Soltero/a - Casado/a).
 
- */
+
