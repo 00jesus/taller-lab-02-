@@ -58,4 +58,10 @@ class RegistroTest {
         int resultado = Registro.mostrarCantidadTerceraEdad(registro);
         Assertions.assertEquals(esperado, resultado);
     }
+
+    @Test
+    void validarEntero() {
+        String esperado = "5";
+        String resultado = Registro.validarEntero();
+    }
 }
